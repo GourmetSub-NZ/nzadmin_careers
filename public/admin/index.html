@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>HR — Gourmet Sub</title>
+<style>
+:root{--ink:#1d1d1f;--mut:#6e6e73;--tile:#f5f5f7;--line:#d2d2d7;--or:#f1a722;--ease:cubic-bezier(.28,.11,.32,1);color-scheme:light;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--tile);color:var(--ink);font:400 1.0625rem/1.47 -apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",system-ui,sans-serif;letter-spacing:-.022em;-webkit-font-smoothing:antialiased}
+h1,h3,p{margin:0}h1,h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",system-ui,sans-serif;font-weight:600;text-wrap:balance}
+button,input,select,textarea{font:inherit;letter-spacing:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.wrap{width:min(1040px,100% - 2.5rem);margin:0 auto;padding:3rem 0 4rem}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.6rem}
+.btn{display:inline-block;border:0;border-radius:980px;background:var(--or);color:#000;padding:.7rem 1.4rem;font-size:1.0625rem;cursor:pointer;transition:transform .1s ease-out,background .2s}
+.btn:hover{background:#f6b64a}.btn:active{transform:scale(.97)}.btn[disabled]{opacity:.4;pointer-events:none}
+.btn.sm{padding:.65rem 1.2rem;font-size:.9375rem}.btn.ghost{background:none;border:1px solid var(--line)}.btn.ghost:hover{background:var(--tile)}
+.link{background:none;border:0;padding:0;cursor:pointer;font-size:.9375rem;font-weight:500;color:var(--ink)}.link:hover{text-decoration:underline}
+.rq{color:#d70015;font-weight:600}
+/* login */
+#login{min-height:100svh;display:grid;place-items:center;padding:1.25rem}
+.card{background:#fff;border-radius:28px;padding:2.4rem 2.2rem;width:min(420px,100%)}
+.card h1{font-size:2rem;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.4rem}
+/* dashboard */
+.ah{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.ah h1{font-size:2.25rem;letter-spacing:-.03em;line-height:1.1}
+.jh{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:2rem}
+.sub{color:var(--mut)}
+.list{background:#fff;border-radius:18px;padding:0 1.4rem;margin-top:1rem}
+.jr{display:flex;gap:1rem;align-items:center;padding:1.2rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.jr:last-child{border:0}
+.jr>div{flex:1;min-width:200px}.jr b{display:block;font-size:1.1875rem;letter-spacing:-.015em;cursor:pointer}.jr b:hover{text-decoration:underline}
+.jr span{color:var(--mut);font-size:.9375rem}
+.pill{font-size:.8125rem;border-radius:999px;padding:.2rem .7rem;background:#e8e8ed}.pill.open{background:#000;color:var(--or)}
+.empty{padding:2.5rem 0;text-align:center;color:var(--mut)}
+/* modal */
+dialog{border:0;padding:0;background:none;max-width:none;max-height:none;width:100%;height:100%;overflow:hidden;color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;transition:opacity .3s}dialog.show::backdrop{opacity:1}
+.box{position:absolute;left:50%;top:50%;width:min(580px,100% - 2rem);max-height:90svh;overflow:auto;background:#fff;border-radius:22px;padding:2.4rem 2.2rem 2rem;transform:translate(-50%,-48%) scale(.96);opacity:0;transition:transform .4s var(--ease),opacity .3s}
+dialog.show .box{transform:translate(-50%,-50%);opacity:1}
+.x{position:absolute;top:1rem;right:1rem;width:30px;height:30px;border-radius:50%;border:0;background:#e8e8ed;cursor:pointer;color:var(--mut)}
+.box h3{font-size:1.75rem;line-height:1.12;letter-spacing:-.025em;margin:.2rem 0 1rem}
+.fld{margin-bottom:1rem}.fld label{display:block;font-size:.875rem;color:var(--mut);margin:0 0 .35rem .1rem}
+.fld input,.fld textarea,.fld select{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:.9rem 1rem;outline:0;transition:border-color .2s,box-shadow .2s;resize:vertical}
+.fld input:focus,.fld textarea:focus,.fld select:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(241,167,34,.4)}
+.hint{font-size:.8125rem;color:var(--mut);margin:.35rem 0 0 .1rem}.err{display:none;color:#d70015;font-size:.8125rem;margin:.35rem 0 0 .1rem}
+.bad .err{display:block}.bad input,.bad textarea,.bad select{border-color:#d70015}
+.acts{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-top:1.4rem;flex-wrap:wrap}
+.msg{color:#d70015;font-size:.875rem;margin-top:.8rem}
+@media(max-width:700px){.box{top:auto;bottom:0;left:0;width:100%;border-radius:22px 22px 0 0;transform:translateY(40px);padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px))}dialog.show .box{transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:opacity .2s!important}}
+</style>
+</head>
+<body>
+<main id="login" hidden><form class="card" id="lf" novalidate>
+  <p class="eyebrow">Gourmet Sub · HR</p><h1>Sign in.</h1>
+  <div class="fld"><label for="em">Email<b class="rq"> *</b></label><input id="em" type="email" autocomplete="username" required></div>
+  <div class="fld"><label for="pw">Password<b class="rq"> *</b></label><input id="pw" type="password" autocomplete="current-password" required></div>
+  <p class="msg" id="lm" role="alert" hidden></p>
+  <div class="acts"><span></span><button class="btn" id="lb" type="submit">Sign in</button></div>
+</form></main>
+
+<main id="app" hidden><div class="wrap">
+  <div class="ah"><div><p class="eyebrow">Gourmet Sub · HR</p><h1>Job listings</h1></div><p class="sub"><span id="who"></span> · <button class="link" id="out">Sign out</button></p></div>
+  <div class="jh"><p class="sub" id="jm"></p><button class="btn sm" id="jn">New job listing</button></div>
+  <div class="list" id="jl" aria-live="polite"></div>
+  <p class="hint" style="margin-top:1.2rem">Open listings appear on the careers website straight away. Applications arrive by email at your hiring inbox.</p>
+</div></main>
+
+<dialog id="dlg" aria-labelledby="st"><div class="box"><button class="x" id="x" aria-label="Close">✕</button><div id="body"></div></div></dialog>
+
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const Q='<b class="rq"> *</b>',TYPES=["Part-time or full-time","Part-time","Full-time","Casual","Fixed-term"];
+let JOBS=[],editing=null;
+async function api(path,method="GET",body){
+  const r=await fetch("/api"+path,{method,credentials:"same-origin",headers:{"Content-Type":"application/json","X-HR":"1"},body:body?JSON.stringify(body):undefined});
+  let j={};try{j=await r.json()}catch{}
+  if(r.status==401&&path!="/login"){show(false)}
+  return {ok:r.ok,status:r.status,data:j};
+}
+function show(authed,email){$("#login").hidden=authed;$("#app").hidden=!authed;if(authed){$("#who").textContent=email;load()}}
+async function init(){const r=await api("/me");r.ok?show(true,r.data.email):show(false)}
+$("#lf").onsubmit=async e=>{e.preventDefault();const b=$("#lb");b.disabled=true;$("#lm").hidden=true;
+  const r=await api("/login","POST",{email:$("#em").value,password:$("#pw").value});b.disabled=false;
+  if(r.ok){$("#pw").value="";show(true,r.data.email)}else{$("#lm").textContent=r.status==429?"Too many attempts. Try again in 15 minutes.":"That email or password isn’t right.";$("#lm").hidden=false}};
+$("#out").onclick=async()=>{await api("/logout","POST");show(false)};
+async function load(){const r=await api("/admin/jobs");if(!r.ok)return;JOBS=r.data;paint()}
+function paint(){const o=JOBS.filter(j=>j.status=="open").length,d=JOBS.filter(j=>j.status=="draft").length;
+  $("#jm").textContent=JOBS.length?`${o} open · ${d} draft · ${JOBS.length} total`:"No listings yet. Create your first one.";
+  $("#jl").innerHTML=JOBS.length?JOBS.map(j=>`<div class="jr"><div><b data-edit="${esc(j.id)}">${esc(j.t)}</b><span>${esc(j.c)} · ${esc(j.ty)} · ${esc(j.l)}</span></div><span class="pill ${j.status}">${j.status=="open"?"Open":j.status=="draft"?"Draft":"Closed"}</span><button class="link" data-edit="${esc(j.id)}">Edit</button><button class="link" data-st="${esc(j.id)}">${j.status=="open"?"Close":j.status=="closed"?"Reopen":"Publish"}</button><button class="link" data-del="${esc(j.id)}">Delete</button></div>`).join(""):`<p class="empty">Your listings will appear here.</p>`}
+$("#jl").onclick=async e=>{const t=e.target.closest("[data-edit],[data-st],[data-del]");if(!t)return;
+  if(t.dataset.edit)return form(JOBS.find(j=>j.id==t.dataset.edit));
+  if(t.dataset.st){const j=JOBS.find(x=>x.id==t.dataset.st);const s=j.status=="open"?"closed":"open";const r=await api("/admin/jobs/"+j.id,"PUT",{status:s});if(r.ok)load();else if(r.status==400)form(j,"Complete the listing before publishing it.");return}
+  if(t.dataset.del){if(t.dataset.sure){await api("/admin/jobs/"+t.dataset.del,"DELETE");load()}else{t.dataset.sure=1;t.textContent="Confirm delete"}}};
+$("#jn").onclick=()=>form(null);
+function field(id,label,o={}){const v=o.v??"";return`<div class="fld" data-f="${id}"><label for="${id}">${label}</label>${o.ta?`<textarea id="${id}" rows="${o.ta}">${esc(v)}</textarea>`:o.sel?`<select id="${id}">${o.sel.map(x=>`<option ${x==v?"selected":""}>${esc(x)}</option>`).join("")}</select>`:`<input id="${id}" value="${esc(v)}">`}${o.h?`<p class="hint">${o.h}</p>`:""}<p class="err">${o.e||""}</p></div>`}
+function form(j,note){editing=j;const v=j||{l:"Auckland"};
+  $("#body").innerHTML=`<p class="eyebrow">${j?"Edit listing":"New job listing"}</p><h3 id="st" tabindex="-1">${j?esc(j.t):"Create a listing."}</h3><p class="hint" style="margin:-.6rem 0 1.2rem">${Q.trim()} Required</p>`
+   +field("ft","Job title"+Q,{v:v.t,e:"Enter a job title."})+field("fc","Team"+Q,{v:v.c,e:"Enter a team.",h:"For example Kitchen, Front of house, Management or Head office."})
+   +field("fy","Employment type"+Q,{sel:TYPES,v:v.ty||TYPES[0]})+field("fl","Location"+Q,{v:v.l,e:"Enter a location."})
+   +`<div class="fld"><label for="fn">Notes for the generator (optional)</label><textarea id="fn" rows="2"></textarea><p class="hint">Anything specific, like shifts, certificates or tools.</p></div><button class="btn ghost sm" id="fg" type="button">Generate listing</button><div style="height:1.2rem"></div>`
+   +field("fd","Description"+Q,{ta:3,v:v.d,e:"Add a description before publishing."})+field("fu","What they’ll do"+Q,{ta:5,v:(v.u||[]).join("\n"),h:"One item per line.",e:"Add at least one item before publishing."})+field("fq","What they’ll bring"+Q,{ta:4,v:(v.q||[]).join("\n"),h:"One item per line.",e:"Add at least one item before publishing."})
+   +`<p class="msg" id="fm" role="alert" ${note?"":"hidden"}>${esc(note||"")}</p><div class="acts"><button class="btn ghost" id="sv" type="button">${j?"Save changes":"Save as draft"}</button>${j&&j.status=="open"?"":`<button class="btn" id="pb" type="button">${j&&j.status=="closed"?"Save and reopen":"Publish listing"}</button>`}</div>`;
+  $("#fg").onclick=gen;$("#sv").onclick=()=>save(j?j.status:"draft");const pb=$("#pb");if(pb)pb.onclick=()=>save("open");
+  $("#dlg").showModal();requestAnimationFrame(()=>requestAnimationFrame(()=>$("#dlg").classList.add("show")));$("#st").focus({preventScroll:true})}
+const val=id=>$("#"+id).value.trim();
+async function gen(){const t=val("ft"),c=val("fc");["ft","fc"].forEach(i=>$("[data-f="+i+"]").classList.toggle("bad",!val(i)));if(!t||!c)return;
+  const b=$("#fg");b.textContent="Generating…";b.disabled=true;const r=await api("/admin/generate","POST",{t,c,ty:val("fy"),l:val("fl"),n:val("fn")});b.disabled=false;b.textContent="Regenerate";
+  if(r.ok){$("#fd").value=r.data.d;$("#fu").value=r.data.u.join("\n");$("#fq").value=r.data.q.join("\n")}else{$("#fm").textContent="Couldn’t generate right now. You can write the listing yourself.";$("#fm").hidden=false}}
+async function save(status){const need=["ft","fc","fl"];if(status=="open")need.push("fd","fu","fq");
+  document.querySelectorAll(".fld").forEach(f=>f.classList.remove("bad"));const bad=need.filter(i=>!val(i));bad.forEach(i=>$("[data-f="+i+"]").classList.add("bad"));
+  if(bad.length){$("#"+bad[0]).focus();return}
+  const body={t:val("ft"),c:val("fc"),ty:val("fy"),l:val("fl"),d:val("fd"),u:val("fu"),q:val("fq"),status};
+  const r=editing?await api("/admin/jobs/"+editing.id,"PUT",body):await api("/admin/jobs","POST",body);
+  if(r.ok){closeDlg();load()}else{$("#fm").textContent=r.status==401?"Your session ended. Please sign in again.":"We couldn’t save that. Check the highlighted fields and try again.";$("#fm").hidden=false}}
+function closeDlg(){const d=$("#dlg");d.classList.remove("show");setTimeout(()=>d.close(),300)}
+$("#x").onclick=closeDlg;$("#dlg").addEventListener("cancel",e=>{e.preventDefault();closeDlg()});$("#dlg").addEventListener("click",e=>{if(e.target==$("#dlg"))closeDlg()});
+init();
+</script>
+</body>
+</html>
